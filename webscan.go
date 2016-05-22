@@ -8,7 +8,7 @@ import (
 	"os/exec"
 )
 
-const scan_binary = "scanimage.sh"
+const scanBinary = "scan.sh"
 
 func main() {
 
@@ -16,7 +16,7 @@ func main() {
 	http.HandleFunc("/scan", func(w http.ResponseWriter, r *http.Request) {
 		// fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
 		// invoke scan script that is going to scan document and convert to PDF
-		stdout, err := exec.Command(scan_binary).Output()
+		stdout, err := exec.Command(scanBinary).Output()
 		if err != nil {
 			log.Printf("Could not execute command. Error: %v\n", err)
 			w.WriteHeader(500)
